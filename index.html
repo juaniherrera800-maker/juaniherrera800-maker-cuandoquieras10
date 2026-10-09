@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Cuando Quieras - Heladería & Cafetería Digital Menu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              espresso: {
+                50: "#FDFBF7",
+                100: "#F7F3E9",
+                200: "#EBE2CD",
+                700: "#4A3427",
+                800: "#342318",
+                900: "#23160E",
+              },
+              cream: {
+                50: "#FFFEFA",
+                100: "#FFFDF5",
+                200: "#FAF4E6",
+                300: "#F2E8D3",
+              },
+              caramel: {
+                400: "#E5A059",
+                500: "#D9822B",
+                600: "#B86317",
+              },
+              gold: {
+                400: "#F3C06B",
+                500: "#DCA237",
+                600: "#B67E20",
+              },
+              gelato: {
+                chocolate: "#5C3828",
+                dulce: "#C27A38",
+                crema: "#FAF0CA",
+                frutal: "#E05A47",
+                especial: "#8B5CF6",
+              },
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "serif"],
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            boxShadow: {
+              menu: "0 4px 20px -2px rgba(52, 35, 24, 0.08), 0 2px 6px -1px rgba(52, 35, 24, 0.04)",
+              floating: "0 12px 32px -4px rgba(35, 22, 14, 0.25)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Custom Scrollbars */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f7f3e9;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d9822b;
+        border-radius: 999px;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .glass-nav {
+        background: rgba(253, 251, 247, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .badge-shimmer {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 2.5s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-espresso-50 text-espresso-900 font-sans antialiased min-h-screen pb-28 selection:bg-caramel-500 selection:text-white"
+  >
+    <header
+      class="relative bg-espresso-900 text-cream-50 overflow-hidden pt-8 pb-12 px-4 shadow-xl"
+    >
+      <div
+        class="absolute inset-0 opacity-15 bg-[radial-gradient(#D9822B_1px,transparent_1px)] [background-size:16px_16px]"
+      ></div>
+
+      <div class="relative max-w-2xl mx-auto text-center space-y-3">
+        <!-- Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-caramel-500/20 border border-caramel-500/30 text-gold-400 text-xs tracking-wider uppercase font-semibold"
+        >
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Heladería Artesanal
+          & Cafetería
+        </div>
+
+        <!-- Title -->
+        <h1
+          class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-cream-100"
+        >
+          Cuando Quieras
+        </h1>
+
+        <p
+          class="text-xs sm:text-sm text-cream-300 max-w-md mx-auto italic font-serif"
+        >
+          "El placer de tomar un buen café y el auténtico sabor del helado
+          artesanal."
+        </p>
+
+        <!-- Store Info Bar -->
+        <div
+          class="pt-2 flex flex-wrap justify-center items-center gap-4 text-xs text-cream-200/80"
+        >
+          <span class="flex items-center gap-1.5"
+            ><i data-lucide="clock" class="w-3.5 h-3.5 text-caramel-400"></i>
+            Abierto hoy 08:00 - 00:00 hs</span
+          >
+          <span class="flex items-center gap-1.5"
+            ><i data-lucide="map-pin" class="w-3.5 h-3.5 text-caramel-400"></i>
+            San Miguel del Monte</span
+          >
+          <span class="flex items-center gap-1.5"
+            ><i data-lucide="wifi" class="w-3.5 h-3.5 text-caramel-400"></i>
+            Wi-Fi: CuandoQuieras2026</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <div
+      class="sticky top-0 z-30 glass-nav border-b border-espresso-200/60 shadow-sm transition-all duration-300"
+    >
+      <div class="max-w-3xl mx-auto px-4 py-3 space-y-3">
+        <!-- Search & View Toggle Row -->
+        <div class="flex items-center gap-2">
+          <div class="relative flex-1">
+            <i
+              data-lucide="search"
+              class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-espresso-700/50"
+            ></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar café, alfajor, sabor de helado..."
+              class="w-full pl-10 pr-9 py-2 bg-white border border-espresso-200 rounded-full text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-caramel-500/50 focus:border-caramel-500 shadow-inner transition-all placeholder:text-espresso-700/40"
+              oninput="handleSearch(this.value)"
+            />
+            <button
+              id="clearSearchBtn"
+              onclick="clearSearch()"
+              class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-espresso-700/50 hover:text-espresso-900"
+            >
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <button
+            onclick="toggleViewMode()"
+            id="viewToggleBtn"
+            title="Cambiar vista"
+            class="p-2.5 bg-white border border-espresso-200 rounded-full text-espresso-800 hover:bg-espresso-100 transition shadow-sm flex-shrink-0"
+          >
+            <i data-lucide="grid" class="w-4 h-4" id="viewToggleIcon"></i>
+          </button>
+        </div>
+
+        <!-- Categories Tabs -->
+        <nav
+          id="categoryNav"
+          class="flex gap-2 overflow-x-auto no-scrollbar pb-1 text-xs sm:text-sm font-semibold"
+        >
+          <!-- Dynamically rendered categories -->
+        </nav>
+      </div>
+    </div>
+
+    <main class="max-w-3xl mx-auto px-4 pt-6 space-y-8" id="menuContainer">
+      <!-- Menu items injected via JavaScript -->
+    </main>
+
+    <div
+      id="cartFloatingBar"
+      class="fixed bottom-4 left-4 right-4 z-40 max-w-xl mx-auto hidden"
+    >
+      <button
+        onclick="openCartModal()"
+        class="w-full bg-espresso-900 text-cream-50 p-4 rounded-2xl shadow-floating flex items-center justify-between hover:bg-espresso-800 transition transform active:scale-[0.99] border border-gold-500/30"
+      >
+        <div class="flex items-center gap-3">
+          <div class="relative bg-caramel-500 text-white p-2.5 rounded-xl">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span
+              id="cartCountBadge"
+              class="absolute -top-2 -right-2 bg-gold-400 text-espresso-900 font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-espresso-900"
+            >
+              0
+            </span>
+          </div>
+          <div class="text-left">
+            <p class="text-xs text-cream-300 font-medium">Ver tu pedido</p>
+            <p id="cartFloatingTotal" class="text-base font-bold text-gold-400">
+              $0
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-1.5 text-xs font-semibold bg-caramel-600/80 px-3 py-2 rounded-lg text-cream-100"
+        >
+          <span>Confirmar Pedido</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </div>
+      </button>
+    </div>
+
+    <div
+      id="flavorModal"
+      class="fixed inset-0 bg-espresso-900/70 z-50 backdrop-blur-sm hidden flex items-end sm:items-center justify-center p-0 sm:p-4"
+    >
+      <div
+        class="bg-cream-50 w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[90vh] flex flex-col overflow-hidden border border-espresso-200"
+      >
+        <!-- Modal Header -->
+        <div
+          class="bg-espresso-900 text-cream-50 p-4 sm:p-5 flex items-center justify-between"
+        >
+          <div>
+            <span
+              class="text-xs text-caramel-400 font-semibold uppercase tracking-wider"
+              >Helado Artesanal</span
+            >
+            <h3
+              id="modalHeladoTitle"
+              class="text-xl font-serif font-bold text-cream-100"
+            >
+              1 Kg de Helado
+            </h3>
+            <p id="modalHeladoSubtitle" class="text-xs text-cream-300">
+              Selecciona hasta 4 sabores
+            </p>
+          </div>
+          <button
+            onclick="closeFlavorModal()"
+            class="text-cream-300 hover:text-white p-2 rounded-full hover:bg-espresso-800"
+          >
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <!-- Selected Flavors Counter Bar -->
+        <div
+          class="bg-espresso-100 p-3 px-5 border-b border-espresso-200 flex items-center justify-between text-xs"
+        >
+          <span class="font-medium text-espresso-800">Sabores elegidos:</span>
+          <div class="flex items-center gap-1">
+            <span id="flavorCountText" class="font-bold text-caramel-600"
+              >0</span
+            >
+            <span class="text-espresso-700/60" id="flavorMaxText">/ 4</span>
+          </div>
+        </div>
+
+        <!-- Flavors Scrollable List -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-4" id="flavorsContainer">
+          <!-- Injected Gelato Categories & Sabores -->
+        </div>
+
+        <!-- Modal Footer -->
+        <div
+          class="p-4 bg-white border-t border-espresso-200 flex items-center justify-between gap-4"
+        >
+          <div>
+            <span class="text-xs text-espresso-700">Precio total</span>
+            <p
+              id="modalHeladoPrice"
+              class="text-lg font-bold text-espresso-900"
+            >
+              $0
+            </p>
+          </div>
+          <button
+            id="confirmFlavorsBtn"
+            onclick="addHeladoToCartFromModal()"
+            class="flex-1 bg-caramel-500 hover:bg-caramel-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-md"
+          >
+            <i data-lucide="plus-circle" class="w-5 h-5"></i>
+            <span>Agregar al Pedido</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="cartModal"
+      class="fixed inset-0 bg-espresso-900/70 z-50 backdrop-blur-sm hidden flex items-end sm:items-center justify-center p-0 sm:p-4"
+    >
+      <div
+        class="bg-cream-50 w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[92vh] flex flex-col overflow-hidden border border-espresso-200"
+      >
+        <!-- Drawer Header -->
+        <div
+          class="bg-espresso-900 text-cream-50 p-4 sm:p-5 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-2">
+            <i data-lucide="shopping-bag" class="w-5 h-5 text-caramel-400"></i>
+            <h3 class="text-lg font-serif font-bold text-cream-100">
+              Tu Pedido / Mesa
+            </h3>
+          </div>
+          <button
+            onclick="closeCartModal()"
+            class="text-cream-300 hover:text-white p-2 rounded-full hover:bg-espresso-800"
+          >
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <!-- Items List -->
+        <div
+          class="flex-1 overflow-y-auto p-4 space-y-3"
+          id="cartItemsContainer"
+        >
+          <!-- Rendered cart items -->
+        </div>
+
+        <!-- Order Details Form -->
+        <div
+          class="p-4 bg-espresso-100/80 border-t border-espresso-200 space-y-3 text-xs"
+        >
+          <div>
+            <label class="block font-semibold text-espresso-800 mb-1"
+              >Nº de Mesa o Nombre:</label
+            >
+            <input
+              type="text"
+              id="tableOrNameInput"
+              placeholder="Ej: Mesa 4 o Para llevar (Juan)"
+              class="w-full p-2.5 bg-white border border-espresso-200 rounded-lg text-xs focus:ring-2 focus:ring-caramel-500 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label class="block font-semibold text-espresso-800 mb-1"
+              >Aclaraciones especiales (opcional):</label
+            >
+            <input
+              type="text"
+              id="orderNotesInput"
+              placeholder="Ej: Edulcorante en lugar de azúcar, café bien caliente..."
+              class="w-full p-2.5 bg-white border border-espresso-200 rounded-lg text-xs focus:ring-2 focus:ring-caramel-500 focus:outline-none"
+            />
+          </div>
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="p-4 bg-white border-t border-espresso-200 space-y-3">
+          <div class="space-y-1 text-sm">
+            <div class="flex justify-between text-espresso-700">
+              <span>Subtotal</span>
+              <span id="cartSubtotalText">$0</span>
+            </div>
+            <div
+              class="flex justify-between text-lg font-bold text-espresso-900 pt-1 border-t border-espresso-100"
+            >
+              <span>Total</span>
+              <span id="cartTotalText" class="text-caramel-600">$0</span>
+            </div>
+          </div>
+
+          <button
+            onclick="sendWhatsAppOrder()"
+            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-md active:scale-[0.99]"
+          >
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>Enviar Pedido por WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // App Data & Categories Definition
+      const MENU_DATA = {
+        categories: [
+          { id: "cafeteria", name: "Cafetería", icon: "coffee" },
+          { id: "helados", name: "Helados", icon: "ice-cream" },
+          { id: "postres", name: "Copas & Postres", icon: "cup-soda" },
+          { id: "bakery", name: "Bakery & Pastelería", icon: "croissant" },
+          { id: "combos", name: "Combos & Desayunos", icon: "utensils" },
+        ],
+
+        // Gelato Flavors Database
+        gelatoFlavors: {
+          cremas: [
+            "Tramontana",
+            "Crema Americana",
+            "Crema Rusa (con nueces)",
+            "Banana Split",
+            "Vainilla Real",
+            "Sambayón con Pasas",
+            "Menta Granizada",
+          ],
+          chocolates: [
+            "Chocolate Cuando Quieras (Especial de la casa)",
+            "Chocolate Amargo 70%",
+            "Chocolate con Almendras",
+            "Chocolate Blanco con Frutos Rojos",
+            "Chocolate Suizo",
+          ],
+          dulces: [
+            "Dulce de Leche Granizado",
+            "Dulce de Leche Colonial",
+            "Dulce de Leche con Nuez",
+            "Dulce de Leche Super con Bon o Bon",
+          ],
+          frutales: [
+            "Frutilla a la Crema",
+            "Frutilla al Agua",
+            "Limón Natural",
+            "Maracuyá artesanal",
+            "Durazno al Agua",
+            "Frambuesa",
+          ],
+        },
+
+        // Menu Items List
+        items: [
+          // CAFETERIA
+          {
+            id: "c1",
+            categoryId: "cafeteria",
+            name: "Café Espresso",
+            description: "Café corto, intenso y con abundante crema dorada.",
+            price: 1800,
+            image:
+              "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=500&auto=format&fit=crop&q=80",
+            popular: true,
+            tags: ["Clásico"],
+          },
+          {
+            id: "c2",
+            categoryId: "cafeteria",
+            name: "Cappuccino Italiano",
+            description:
+              "Espresso, leche vaporizada, abundante espuma de leche, canela y cacao en polvo.",
+            price: 2800,
+            image:
+              "https://images.unsplash.com/photo-1572442388796-11668ba67e53?w=500&auto=format&fit=crop&q=80",
+            popular: true,
+            tags: ["Recomendado"],
+          },
+          {
+            id: "c3",
+            categoryId: "cafeteria",
+            name: "Flat White",
+            description:
+              "Doble shot de espresso con fina capa de leche microespumada.",
+            price: 2900,
+            image:
+              "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=500&auto=format&fit=crop&q=80",
+            tags: ["Especialidad"],
+          },
+          {
+            id: "c4",
+            categoryId: "cafeteria",
+            name: "Submarino Tradicional",
+            description:
+              "Barra de Chocolate de leche artesanal derretida en leche bien caliente.",
+            price: 3200,
+            image:
+              "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&auto=format&fit=crop&q=80",
+            popular: true,
+          },
+          {
+            id: "c5",
+            categoryId: "cafeteria",
+            name: "Latte Caramel",
+            description:
+              "Espresso suave con abundante leche y sirope dulce de caramelo artesanal.",
+            price: 3100,
+            image:
+              "https://images.unsplash.com/photo-1593443320739-77f74939d0da?w=500&auto=format&fit=crop&q=80",
+          },
+          {
+            id: "c6",
+            categoryId: "cafeteria",
+            name: "Té en Hebras en Tetera",
+            description:
+              "Variedades a elección: Earl Grey, Frutos Rojos, Verde Menta o Manzanilla.",
+            price: 2200,
+            image:
+              "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&auto=format&fit=crop&q=80",
+          },
+
+          // HELADOS
+          {
+            id: "h1",
+            categoryId: "helados",
+            name: "1 Kilo de Helado Artesanal",
+            description: "Elige hasta 4 sabores artesanales a elección.",
+            price: 11500,
+            image:
+              "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&auto=format&fit=crop&q=80",
+            isGelatoCustom: true,
+            maxFlavors: 4,
+            popular: true,
+            tags: ["Ideal para compartir"],
+          },
+          {
+            id: "h2",
+            categoryId: "helados",
+            name: "1/2 Kilo de Helado Artesanal",
+            description: "Elige hasta 3 sabores artesanales a elección.",
+            price: 6800,
+            image:
+              "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=500&auto=format&fit=crop&q=80",
+            isGelatoCustom: true,
+            maxFlavors: 3,
+            popular: true,
+          },
+          {
+            id: "h3",
+            categoryId: "helados",
+            name: "1/4 Kilo de Helado Artesanal",
+            description: "Elige hasta 2 sabores artesanales a elección.",
+            price: 3900,
+            image:
+              "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=500&auto=format&fit=crop&q=80",
+            isGelatoCustom: true,
+            maxFlavors: 2,
+          },
+          {
+            id: "h4",
+            categoryId: "helados",
+            name: "Cucurucho Crocante (2 Bochas)",
+            description:
+              "Barquillos crocantes elaborados en el día con 2 sabores a elección.",
+            price: 2900,
+            image:
+              "https://images.unsplash.com/photo-1559703248-dcaaec9fab78?w=500&auto=format&fit=crop&q=80",
+            isGelatoCustom: true,
+            maxFlavors: 2,
+          },
+
+          // COPAS & POSTRES
+          {
+            id: "p1",
+            categoryId: "postres",
+            name: 'Copa "Cuando Quieras"',
+            description:
+              "Bocha de Dulce de leche y Tramontana, charlotines, salsa de chocolate, crema chantilly y nueces picadas.",
+            price: 4800,
+            image:
+              "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&auto=format&fit=crop&q=80",
+            popular: true,
+            tags: ["Especial de la Casa"],
+          },
+          {
+            id: "p2",
+            categoryId: "postres",
+            name: "Copa Frutal Don Pedro",
+            description:
+              "Helado de Crema Americana, chorrito de Whisky o Oporto y nueces pecán tostadas.",
+            price: 5200,
+            image:
+              "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=500&auto=format&fit=crop&q=80",
+          },
+          {
+            id: "p3",
+            categoryId: "postres",
+            name: "Affogato al Cacao",
+            description:
+              "Una bocha de helado de Vainilla ahogada con un shot de café espresso caliente.",
+            price: 3400,
+            image:
+              "https://images.unsplash.com/photo-1592663527359-cf6642f54cff?w=500&auto=format&fit=crop&q=80",
+          },
+
+          // BAKERY & PASTELERIA
+          {
+            id: "b1",
+            categoryId: "bakery",
+            name: "Medialuna de Manteca",
+            description: "Tradicional horneada en el día con almíbar suave.",
+            price: 750,
+            image:
+              "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&auto=format&fit=crop&q=80",
+            popular: true,
+          },
+          {
+            id: "b2",
+            categoryId: "bakery",
+            name: "Tostado Jamón y Queso en Pan de Miga",
+            description:
+              "En pan blanco o integral de molde doble, bien dorado y crocante.",
+            price: 3800,
+            image:
+              "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=500&auto=format&fit=crop&q=80",
+            popular: true,
+          },
+          {
+            id: "b3",
+            categoryId: "bakery",
+            name: "Alfajor Artesanal de Dulce de Leche",
+            description:
+              "Masa suave bañada en chocolate negro semi-amargo cargado de dulce de leche.",
+            price: 1500,
+            image:
+              "https://images.unsplash.com/photo-1612203985729-70726954388c?w=500&auto=format&fit=crop&q=80",
+          },
+          {
+            id: "b4",
+            categoryId: "bakery",
+            name: "Waffle con Helado y Frutas",
+            description:
+              "Waffle tibio, 1 bocha de helado a elección, frutillas frescas y hilo de Nutella.",
+            price: 4900,
+            image:
+              "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=500&auto=format&fit=crop&q=80",
+            tags: ["Novedad"],
+          },
+          {
+            id: "b5",
+            categoryId: "bakery",
+            name: "Porción de Torta Rogel / CheesCake",
+            description:
+              "Consultar variedad del día exhibida en la vitrina principal.",
+            price: 4200,
+            image:
+              "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=500&auto=format&fit=crop&q=80",
+          },
+
+          // COMBOS & DESAYUNOS
+          {
+            id: "cb1",
+            categoryId: "combos",
+            name: "Desayuno / Merienda Clásica",
+            description:
+              "1 Café o Infusión + 2 Medialunas de manteca calientes + Vaso de jugo exprimido de naranja.",
+            price: 3900,
+            image:
+              "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&auto=format&fit=crop&q=80",
+            popular: true,
+            tags: ["Ahorro"],
+          },
+          {
+            id: "cb2",
+            categoryId: "combos",
+            name: "Combo Tostado & Café",
+            description:
+              "Café Jarrito o Cappuccino + Tostado de Jamón y Queso en pan de miga.",
+            price: 5500,
+            image:
+              "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=500&auto=format&fit=crop&q=80",
+            popular: true,
+          },
+          {
+            id: "cb3",
+            categoryId: "combos",
+            name: "Combo Dulce Tentación",
+            description:
+              "Latte o Submarino + Alfajor artesanal o porción de alfajor Santafesino.",
+            price: 4400,
+            image:
+              "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=500&auto=format&fit=crop&q=80",
+          },
+        ],
+      };
+
+      // State Variables
+      let currentCategory = "cafeteria";
+      let searchQuery = "";
+      let isGridView = false;
+      let cart = [];
+
+      // Temporary Gelato Modal Selection State
+      let activeHeladoItem = null;
+      let selectedFlavors = [];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderCategoriesNav();
+        renderMenu();
+        updateCartUI();
+        lucide.createIcons();
+      });
+
+      // Render Nav Category Pills
+      function renderCategoriesNav() {
+        const nav = document.getElementById("categoryNav");
+        nav.innerHTML = MENU_DATA.categories
+          .map((cat) => {
+            const isActive = cat.id === currentCategory;
+            return `
+          <button 
+            onclick="selectCategory('${cat.id}')"
+            class="px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2 whitespace-nowrap ${
+              isActive
+                ? "bg-caramel-500 text-white shadow-md font-bold"
+                : "bg-white/80 border border-espresso-200 text-espresso-800 hover:bg-espresso-100"
+            }"
+          >
+            <i data-lucide="${cat.icon}" class="w-4 h-4"></i>
+            <span>${cat.name}</span>
+          </button>
+        `;
+          })
+          .join("");
+        lucide.createIcons();
+      }
+
+      // Category Change Handler
+      function selectCategory(catId) {
+        currentCategory = catId;
+        renderCategoriesNav();
+        renderMenu();
+      }
+
+      // Search Query Handlers
+      function handleSearch(val) {
+        searchQuery = val.trim().toLowerCase();
+        const clearBtn = document.getElementById("clearSearchBtn");
+        if (searchQuery.length > 0) {
+          clearBtn.classList.remove("hidden");
+        } else {
+          clearBtn.classList.add("hidden");
+        }
+        renderMenu();
+      }
+
+      function clearSearch() {
+        document.getElementById("searchInput").value = "";
+        searchQuery = "";
+        document.getElementById("clearSearchBtn").classList.add("hidden");
+        renderMenu();
+      }
+
+      // Toggle Grid vs List Layout View Mode
+      function toggleViewMode() {
+        isGridView = !isGridView;
+        const btnIcon = document.getElementById("viewToggleIcon");
+        btnIcon.setAttribute("data-lucide", isGridView ? "list" : "grid");
+        renderMenu();
+        lucide.createIcons();
+      }
+
+      function renderMenu() {
+        const container = document.getElementById("menuContainer");
+
+        // Filter logic
+        let items = MENU_DATA.items;
+
+        if (searchQuery) {
+          items = items.filter(
+            (item) =>
+              item.name.toLowerCase().includes(searchQuery) ||
+              item.description.toLowerCase().includes(searchQuery) ||
+              (item.tags &&
+                item.tags.some((t) => t.toLowerCase().includes(searchQuery))),
+          );
+        } else {
+          items = items.filter((item) => item.categoryId === currentCategory);
+        }
+
+        if (items.length === 0) {
+          container.innerHTML = `
+          <div class="text-center py-16 space-y-3 bg-white rounded-2xl border border-dashed border-espresso-200 p-6">
+            <i data-lucide="utensils-crossed" class="w-12 h-12 mx-auto text-espresso-700/30"></i>
+            <h3 class="text-lg font-serif font-bold text-espresso-800">No encontramos ningún producto</h3>
+            <p class="text-xs text-espresso-700/60 max-w-xs mx-auto">Intenta buscar con otra palabra clave o explora nuestras categorías principales.</p>
+          </div>
+        `;
+          lucide.createIcons();
+          return;
+        }
+
+        // Display layout (Grid or List)
+        const layoutClasses = isGridView
+          ? "grid grid-cols-2 gap-3 sm:gap-4"
+          : "flex flex-col gap-4";
+
+        const itemsHTML = items
+          .map((item) => {
+            const isGelato = item.isGelatoCustom;
+
+            return `
+          <div class="bg-white rounded-2xl border border-espresso-200/80 shadow-menu overflow-hidden flex ${isGridView ? "flex-col" : "flex-row"} hover:border-caramel-500/50 transition duration-200 group">
+            
+            <!-- Image Wrapper -->
+            <div class="relative ${isGridView ? "w-full h-36" : "w-28 sm:w-36 h-auto"} flex-shrink-0 bg-espresso-100 overflow-hidden">
+              <img 
+                src="${item.image}" 
+                alt="${item.name}"
+                loading="lazy" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+              ${
+                item.popular
+                  ? `
+                <span class="absolute top-2 left-2 bg-caramel-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                  ★ Popular
+                </span>
+              `
+                  : ""
+              }
+            </div>
+
+            <!-- Content Details -->
+            <div class="p-3 sm:p-4 flex-1 flex flex-col justify-between space-y-2">
+              <div>
+                <div class="flex items-start justify-between gap-1">
+                  <h3 class="font-serif font-bold text-sm sm:text-base text-espresso-900 leading-snug">
+                    ${item.name}
+                  </h3>
+                </div>
+
+                <p class="text-xs text-espresso-700/70 line-clamp-2 mt-1 leading-relaxed">
+                  ${item.description}
+                </p>
+
+                ${
+                  item.tags
+                    ? `
+                  <div class="flex flex-wrap gap-1 mt-2">
+                    ${item.tags
+                      .map(
+                        (tag) => `
+                      <span class="text-[9px] bg-espresso-100 text-espresso-800 font-semibold px-2 py-0.5 rounded-md">
+                        ${tag}
+                      </span>
+                    `,
+                      )
+                      .join("")}
+                  </div>
+                `
+                    : ""
+                }
+              </div>
+
+              <!-- Price & Action Button -->
+              <div class="flex items-center justify-between pt-2 border-t border-espresso-100">
+                <span class="font-bold text-sm sm:text-base text-caramel-600">
+                  $${item.price.toLocaleString("es-AR")}
+                </span>
+
+                ${
+                  isGelato
+                    ? `
+                  <button 
+                    onclick="openFlavorModal('${item.id}')"
+                    class="bg-espresso-900 hover:bg-caramel-500 text-cream-50 text-xs font-semibold px-3 py-1.5 rounded-xl flex items-center gap-1 transition active:scale-95 shadow-sm"
+                  >
+                    <span>Elegir Sabores</span>
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                  </button>
+                `
+                    : `
+                  <button 
+                    onclick="addToCartDirect('${item.id}')"
+                    class="bg-caramel-500 hover:bg-caramel-600 text-white text-xs font-semibold px-3 py-1.5 rounded-xl flex items-center gap-1 transition active:scale-95 shadow-sm"
+                  >
+                    <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                    <span>Agregar</span>
+                  </button>
+                `
+                }
+              </div>
+            </div>
+
+          </div>
+        `;
+          })
+          .join("");
+
+        container.innerHTML = `<div class="${layoutClasses}">${itemsHTML}</div>`;
+        lucide.createIcons();
+      }
+
+      function openFlavorModal(itemId) {
+        const item = MENU_DATA.items.find((i) => i.id === itemId);
+        if (!item) return;
+
+        activeHeladoItem = item;
+        selectedFlavors = [];
+
+        document.getElementById("modalHeladoTitle").innerText = item.name;
+        document.getElementById("modalHeladoSubtitle").innerText =
+          `Elige hasta ${item.maxFlavors} sabores artesanales`;
+        document.getElementById("modalHeladoPrice").innerText =
+          `$${item.price.toLocaleString("es-AR")}`;
+        document.getElementById("flavorMaxText").innerText =
+          `/ ${item.maxFlavors}`;
+
+        renderFlavorsList();
+        updateFlavorModalCounters();
+
+        document.getElementById("flavorModal").classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        lucide.createIcons();
+      }
+
+      function closeFlavorModal() {
+        document.getElementById("flavorModal").classList.add("hidden");
+        document.body.style.overflow = "";
+        activeHeladoItem = null;
+        selectedFlavors = [];
+      }
+
+      function renderFlavorsList() {
+        const container = document.getElementById("flavorsContainer");
+        const categoryTitles = {
+          cremas: "Cremas Heladas",
+          chocolates: "Chocolates Especiales",
+          dulces: "Dulces de Leche",
+          frutales: "Frutales Artesanales",
+        };
+
+        let html = "";
+
+        for (const [key, flavors] of Object.entries(MENU_DATA.gelatoFlavors)) {
+          html += `
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold text-caramel-600 uppercase tracking-wider border-b border-espresso-200/80 pb-1">
+              ${categoryTitles[key]}
+            </h4>
+            <div class="grid grid-cols-1 gap-1.5">
+              ${flavors
+                .map((flavor) => {
+                  const isSelected = selectedFlavors.includes(flavor);
+                  return `
+                  <button 
+                    onclick="toggleFlavorSelection('${flavor.replace(/'/g, "\\'")}')"
+                    class="w-full text-left p-2.5 rounded-xl text-xs flex items-center justify-between border transition ${
+                      isSelected
+                        ? "bg-caramel-50 border-caramel-500 text-caramel-600 font-bold shadow-xs"
+                        : "bg-white border-espresso-200 text-espresso-800 hover:bg-espresso-100"
+                    }"
+                  >
+                    <span>${flavor}</span>
+                    <div class="w-5 h-5 rounded-full border flex items-center justify-center ${
+                      isSelected
+                        ? "bg-caramel-500 border-caramel-500 text-white"
+                        : "border-espresso-300"
+                    }">
+                      ${isSelected ? '<i data-lucide="check" class="w-3 h-3"></i>' : ""}
+                    </div>
+                  </button>
+                `;
+                })
+                .join("")}
+            </div>
+          </div>
+        `;
+        }
+
+        container.innerHTML = html;
+        lucide.createIcons();
+      }
+
+      function toggleFlavorSelection(flavorName) {
+        if (!activeHeladoItem) return;
+
+        const index = selectedFlavors.indexOf(flavorName);
+
+        if (index > -1) {
+          selectedFlavors.splice(index, 1);
+        } else {
+          if (selectedFlavors.length < activeHeladoItem.maxFlavors) {
+            selectedFlavors.push(flavorName);
+          } else {
+            // Highlight feedback when max limit reached
+            const counterText = document.getElementById("flavorCountText");
+            counterText.classList.add("text-red-600", "scale-125");
+            setTimeout(
+              () => counterText.classList.remove("text-red-600", "scale-125"),
+              300,
+            );
+            return;
+          }
+        }
+
+        renderFlavorsList();
+        updateFlavorModalCounters();
+      }
+
+      function updateFlavorModalCounters() {
+        document.getElementById("flavorCountText").innerText =
+          selectedFlavors.length;
+        const btn = document.getElementById("confirmFlavorsBtn");
+
+        if (selectedFlavors.length === 0) {
+          btn.disabled = true;
+          btn.classList.add("opacity-50");
+        } else {
+          btn.disabled = false;
+          btn.classList.remove("opacity-50");
+        }
+      }
+
+      function addHeladoToCartFromModal() {
+        if (!activeHeladoItem || selectedFlavors.length === 0) return;
+
+        const cartItem = {
+          cartItemId: Date.now().toString(),
+          id: activeHeladoItem.id,
+          name: activeHeladoItem.name,
+          price: activeHeladoItem.price,
+          flavors: [...selectedFlavors],
+          quantity: 1,
+        };
+
+        cart.push(cartItem);
+        updateCartUI();
+        closeFlavorModal();
+        openCartModal();
+      }
+
+      function addToCartDirect(itemId) {
+        const item = MENU_DATA.items.find((i) => i.id === itemId);
+        if (!item) return;
+
+        const existingIndex = cart.findIndex(
+          (ci) => ci.id === itemId && !ci.flavors,
+        );
+
+        if (existingIndex > -1) {
+          cart[existingIndex].quantity += 1;
+        } else {
+          cart.push({
+            cartItemId: Date.now().toString(),
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: 1,
+          });
+        }
+
+        updateCartUI();
+
+        // Temporary button feedback animation
+        const bar = document.getElementById("cartFloatingBar");
+        bar.classList.add("scale-105");
+        setTimeout(() => bar.classList.remove("scale-105"), 200);
+      }
+
+      function updateCartQuantity(cartItemId, delta) {
+        const index = cart.findIndex((ci) => ci.cartItemId === cartItemId);
+        if (index === -1) return;
+
+        cart[index].quantity += delta;
+        if (cart[index].quantity <= 0) {
+          cart.splice(index, 1);
+        }
+
+        updateCartUI();
+        renderCartDrawerItems();
+      }
+
+      function updateCartUI() {
+        const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+        const totalPrice = cart.reduce(
+          (acc, item) => acc + item.price * item.quantity,
+          0,
+        );
+
+        document.getElementById("cartCountBadge").innerText = totalCount;
+        document.getElementById("cartFloatingTotal").innerText =
+          `$${totalPrice.toLocaleString("es-AR")}`;
+        document.getElementById("cartSubtotalText").innerText =
+          `$${totalPrice.toLocaleString("es-AR")}`;
+        document.getElementById("cartTotalText").innerText =
+          `$${totalPrice.toLocaleString("es-AR")}`;
+
+        const floatingBar = document.getElementById("cartFloatingBar");
+        if (totalCount > 0) {
+          floatingBar.classList.remove("hidden");
+        } else {
+          floatingBar.classList.add("hidden");
+          closeCartModal();
+        }
+      }
+
+      function openCartModal() {
+        if (cart.length === 0) return;
+        renderCartDrawerItems();
+        document.getElementById("cartModal").classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        lucide.createIcons();
+      }
+
+      function closeCartModal() {
+        document.getElementById("cartModal").classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+
+      function renderCartDrawerItems() {
+        const container = document.getElementById("cartItemsContainer");
+
+        if (cart.length === 0) {
+          container.innerHTML = `
+          <div class="text-center py-8 text-espresso-700/60 text-xs">
+            El carrito está vacío.
+          </div>
+        `;
+          return;
+        }
+
+        container.innerHTML = cart
+          .map(
+            (item) => `
+        <div class="bg-white p-3 rounded-xl border border-espresso-200 flex items-center justify-between gap-3 shadow-xs">
+          <div class="flex-1 min-w-0">
+            <h4 class="font-bold text-xs sm:text-sm text-espresso-900 truncate">${item.name}</h4>
+            
+            ${
+              item.flavors
+                ? `
+              <p class="text-[10px] text-caramel-600 font-medium leading-tight mt-0.5">
+                Sabores: ${item.flavors.join(", ")}
+              </p>
+            `
+                : ""
+            }
+
+            <p class="text-xs text-espresso-700/70 mt-1 font-semibold">
+              $${(item.price * item.quantity).toLocaleString("es-AR")}
+            </p>
+          </div>
+
+          <!-- Quantity Controls -->
+          <div class="flex items-center gap-2 bg-espresso-100 p-1 rounded-lg border border-espresso-200">
+            <button 
+              onclick="updateCartQuantity('${item.cartItemId}', -1)"
+              class="w-6 h-6 bg-white text-espresso-800 rounded-md flex items-center justify-center text-xs font-bold shadow-xs hover:bg-caramel-500 hover:text-white transition"
+            >
+              -
+            </button>
+            <span class="text-xs font-bold text-espresso-900 min-w-[16px] text-center">
+              ${item.quantity}
+            </span>
+            <button 
+              onclick="updateCartQuantity('${item.cartItemId}', 1)"
+              class="w-6 h-6 bg-white text-espresso-800 rounded-md flex items-center justify-center text-xs font-bold shadow-xs hover:bg-caramel-500 hover:text-white transition"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      `,
+          )
+          .join("");
+      }
+
+      function sendWhatsAppOrder() {
+        if (cart.length === 0) return;
+
+        const tableOrName =
+          document.getElementById("tableOrNameInput").value.trim() ||
+          "No especificado";
+        const notes = document.getElementById("orderNotesInput").value.trim();
+
+        const totalPrice = cart.reduce(
+          (acc, item) => acc + item.price * item.quantity,
+          0,
+        );
+
+        let message = `🍦 *NUEVO PEDIDO - CUANDO QUIERAS* ☕\n`;
+        message += `-----------------------------------\n`;
+        message += `📍 *Ubicación / Cliente:* ${tableOrName}\n`;
+        message += `-----------------------------------\n\n`;
+        message += `📋 *DETALLE DEL PEDIDO:*\n\n`;
+
+        cart.forEach((item, index) => {
+          message += `${index + 1}. *${item.quantity}x ${item.name}* - $${(item.price * item.quantity).toLocaleString("es-AR")}\n`;
+          if (item.flavors && item.flavors.length > 0) {
+            message += `   🍧 _Sabores:_ ${item.flavors.join(", ")}\n`;
+          }
+        });
+
+        message += `\n-----------------------------------\n`;
+        message += `💰 *TOTAL:* $${totalPrice.toLocaleString("es-AR")}\n`;
+
+        if (notes) {
+          message += `📝 *Aclaraciones:* ${notes}\n`;
+        }
+
+        message += `-----------------------------------\n`;
+        message += `¡Muchas gracias!`;
+
+        // Formatted phone link (Replace with actual WhatsApp business number if needed)
+        const phoneNumber = "5491139550093";
+        const encodedMsg = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
+
+        window.open(whatsappUrl, "_blank");
+      }
+    </script>
+  </body>
+</html>
